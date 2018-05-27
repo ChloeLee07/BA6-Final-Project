@@ -2,7 +2,7 @@ library("dplyr")
 library("stringr")
 
 # TODO: actually use Socrata API instead of CSV
-data <- read.csv("Seattle_PD_Data.csv", stringsAsFactors = FALSE)
+data <- read.csv("data/Seattle_PD_Data.csv", stringsAsFactors = FALSE)
 
 # This function returns the processed data frame.
 # Dataset is limited to entries between 'starting_year' and current date 

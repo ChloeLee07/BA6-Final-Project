@@ -30,6 +30,7 @@ shinyUI(navbarPage("Crime by Year",
                                         type = "text/css",
                                         href = "style.css"),
                               tags$h1("Offense Type by Year"),
+                              #h2("Interpretation"),
                               plotOutput("hist")
                             )
                             ),

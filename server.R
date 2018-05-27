@@ -14,14 +14,14 @@ shinyServer(function(input, output) {
     # Store x and y values to produce the chart
     x_data <- chart_one_data %>%
       filter(Year == input$year_choice)
+
     #create the histogram
-    #create the histogram
-    ggplot(x_data) +
-      geom_bar(mapping = aes(x = Offense_Type, y = number, fill = number),
-               stat = "identity") +
+    ggplot(x_data, aes(x = Offense_Type, y = number, fill = number)) +
+      geom_bar(stat = "identity") +
+      geom_text(aes(label = number), size = 1.2) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 90, hjust = 1,
-                                       size = 3, margin = margin(2, 10, 2, 10)),
+                                       size = 4, margin = margin(2, 10, 2, 10)),
             axis.title.y = element_text(angle = 0, vjust = 0.5),
             legend.background = element_rect(fill = "white",
                                              size = 0.5, linetype = "solid",

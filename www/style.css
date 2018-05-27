@@ -7,6 +7,14 @@ h1 {
   text-align: center;
 }
 
+/* change the color, font and position of the second header
+h2 {
+  text-decoration: underline;
+  font-size: 10px;
+  color: #FE4365;
+  text-align: center;
+} */
+
 /* enlarge the chart when hover over */
 img:hover {
   transform: scale(1.3);
@@ -14,9 +22,20 @@ img:hover {
 
 /* adjusting the size of charts */
 img {
-  height: 600px;
-  width: 800px;
+  height: 500px;
+  width: 600px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* change the color of the navbar */
+.navbar-default {
+  background-color: #033649;
+  font-family: "impact";
+}
+
+/* change the color of the text in navbar*/
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
+  color: #CDB380;
 }
