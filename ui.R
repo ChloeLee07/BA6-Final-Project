@@ -37,6 +37,8 @@ shinyUI(navbarPage("Crime by Year",
                    tabPanel("Chart Two"), 
                    # fourth page
                    tabPanel("Chart Three"),
-                   # fifth page: Team info
+                   # fifth page: basic stats computation
+                   tabPanel("Summary"),
+                   # Sixth page: Team info
                    tabPanel("About")  
 ))
