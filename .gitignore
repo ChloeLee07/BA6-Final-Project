@@ -36,4 +36,4 @@ vignettes/*.pdf
 rsconnect/
 
 # huge csv file
-Seattle_PD_Data.csv
+police_data.csv
