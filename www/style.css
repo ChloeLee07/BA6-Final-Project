@@ -23,7 +23,7 @@ img:hover {
 /* adjusting the size of charts */
 img {
   height: 500px;
-  width: 600px;
+  width: 700px;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -38,4 +38,9 @@ img {
 /* change the color of the text in navbar*/
 .navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
   color: #CDB380;
+}
+
+/* change the position of interpertation of the charts */
+p {
+
 }

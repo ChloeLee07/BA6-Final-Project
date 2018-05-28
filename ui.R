@@ -31,6 +31,9 @@ shinyUI(navbarPage("Crime by Year",
                                         href = "style.css"),
                               tags$h1("Offense Type by Year"),
                               #h2("Interpretation"),
+                              tags$p("This chart shows the the number of crime
+                                     according to types in a sleceted year.
+                                     As we can see from the chart, Theft"),
                               plotOutput("hist")
                             )
                             ),
