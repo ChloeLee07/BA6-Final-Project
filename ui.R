@@ -5,8 +5,8 @@ library("lintr")
 library("ggthemes")
 
 # source in the data
-source("script/chart_one_data.R")
 source("processData.R")
+source("script/chart_one_data.R")
 
 # choices assign for y_var widget in chart-two (histogram)
 # select_value_x <- unique(data[, "offence_type"])
