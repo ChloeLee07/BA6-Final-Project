@@ -1,6 +1,5 @@
 library("dplyr")
 library("stringr")
-library("chron")
 
 # TODO: actually use Socrata API instead of CSV
 data <- read.csv("data/police_data.csv", stringsAsFactors = FALSE)
@@ -62,6 +61,7 @@ process_data <- function(starting_year) {
 #   duration_in_hours <- as.numeric(hours(duration))
 
 process_data_with_dates <- function(starting_year) {
+  library("chron")
   processed_data <- data %>% filter(Year >= starting_year)
   names(processed_data) <- gsub("[.]", "_", names(processed_data))
   
