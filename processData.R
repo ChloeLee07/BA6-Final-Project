@@ -105,3 +105,4 @@ process_data_with_dates <- function(starting_year) {
     ) %>%
     select(-Date_Occurred_Start)
 }
+
