@@ -9,7 +9,7 @@ data <- read.csv("data/police_data.csv", stringsAsFactors = FALSE)
 process_data <- function(starting_year) {
   processed_data <- data %>% filter(Year >= starting_year)
   names(processed_data) <- gsub("[.]", "_", names(processed_data))
-  
+
   processed_data <- processed_data %>%
     select(
       RMS_CDW_ID,
@@ -29,14 +29,9 @@ process_data <- function(starting_year) {
     # Using POSIXct defines ordering for the dates and times, so you
     # can use arrange and other sorting functions.
     mutate(
-      Date_Time_Reported = as.POSIXct(Date_Reported, format = '%m/%d/%Y %I:%M:%S %p'),
+      Date_Time_Reported = as.POSIXct(Date_Reported,
+                                      format = "%m/%d/%Y %I:%M:%S %p"),
       Date_Reported = as.Date(Date_Time_Reported),
-      Time_Reported = strftime(Date_Time_Reported, format = '%H:%M:%S')
+      Time_Reported = strftime(Date_Time_Reported, format = "%H:%M:%S")
     )
 }
-
-# process_data(2018)
-
-
-
-
