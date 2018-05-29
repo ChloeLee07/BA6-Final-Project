@@ -28,7 +28,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                      wellPanel(
                                        tags$h2("Target Audiences"),
                                        # contents
-                                       tags$p(HTML(paste0("For a crime report based on a particular area, almost everyone living near the area is likely to be concerned with safety and will, therefore, find the report relevant. We have decided to focus on incidents in and around the ", tags$strong("UW campus. "), "Though the report will be useful to anyone in this area, we will look to serve ", tags$strong(tags$span(style = "color:red", "students ")), "in particular. Our goal is to present insights from the data and thereby provide our audience with a better sense of how to live safely.")))
+                                       tags$p(HTML(paste0("For a crime report based on a particular area, almost everyone living near the area is likely to be concerned with safety and will, therefore, find the report relevant. We have focused on Seattle in general and highlighting the incidents occurred outside of the UW campus. Though the report will be useful to anyone in this area, we will look to serve ", tags$strong(tags$span(style = "color:red", "students ")), "in particular. Our goal is to present insights from the data and thereby provide our audience with a better sense of how to live safely.")))
                                      )
                               ),
 
@@ -36,7 +36,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                      wellPanel(
                                        tags$h2("Analysis"),
                                        # contents
-                                       tags$p(HTML(paste0("The specific questions our project will answer for our audience are as following:", tags$br(), "(1) What is the frequency of incidents based on type?", tags$br(), "(2) Is there any location that is particularly dangerous? What type of incident occurred the most in this given location?", tags$br(), "(3) Which times of day are the safest? Which are most dangerous? Is there a correlation between time of day and the types of crime committed?", tags$br(), "(4) Is the safety around UW campus trending up or down?")))
+                                       tags$p(HTML(paste0("The specific questions our project will answer for our audience are as following:", tags$br(), "(1) What is the frequency of incidents based on type?", tags$br(), "(2) Is there any location that is particularly dangerous espeically outside of the UW campus? What type of incident occurred the most in this given location?", tags$br(), "(3) Which times of day are the safest? Which are most dangerous? Is there a correlation between time of day and the types of crime committed?", tags$br(), "(4) Is the overall safety in Seattle trending up or down?")))
                                      )
                               )
                             )
@@ -71,7 +71,14 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                                we are able to identify what
                                                type of crime is the one with
                                                the higherst number of
-                                               occurences.")
+                                               occurences in the whole Seattle
+                                               area. To make the graph more
+                                               condensed, we have disregarded
+                                               the details of some types of
+                                               crimes. For example, we do not
+                                               differentiate what property or
+                                               elements are involved in the
+                                               THEFT category")
                                       )
                                 )
                             )
