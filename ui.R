@@ -13,10 +13,19 @@ select_value <- unique(chart_one_data[, "Year"])
 
 shinyUI(navbarPage("Seattle Crime vs. Safety",
                    # first page: Intro
+                   tags$head(
+                     tags$style(HTML(".home_page {background-image: url(policecar.jpg);
+                                     overflow: hidden;
+                                     background-size: cover;
+                                     position: absolute;
+                                     left: 0;
+                                     height:100%;}"))),
                    tabPanel("Home",
                             tags$h4("Welcome"),
+                            class = "home_page",
                             fluidRow(
                               column(4,
+                                     
                                      wellPanel(
                                        tags$h2("General Information"),
                                        # contents
@@ -28,7 +37,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                      wellPanel(
                                        tags$h2("Target Audiences"),
                                        # contents
-                                       tags$p(HTML(paste0("For a crime report based on a particular area, almost everyone living near the area is likely to be concerned with safety and will, therefore, find the report relevant. We have decided to focus on incidents in and around the ", tags$strong("UW campus. "), "Though the report will be useful to anyone in this area, we will look to serve ", tags$strong(tags$span(style = "color:red", "students ")), "in particular. Our goal is to present insights from the data and thereby provide our audience with a better sense of how to live safely."))))
+                                       tags$p(HTML(paste0("For a crime report based on a particular area, almost everyone living near the area is likely to be concerned with safety and will, therefore, find the report relevant. We have decided to focus on incidents in and around the ", tags$strong("UW campus. "), "Though the report will be useful to anyone in this area, we will look to serve ", tags$strong(tags$span(style = "color:red", "students ")), "in particular. Our goal is to present insights from the data and thereby provide our audience with a better sense of how to live safely.")))
                                      )
                               ),
 
@@ -112,4 +121,4 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                 )
                               )
                    )
-)
+))
