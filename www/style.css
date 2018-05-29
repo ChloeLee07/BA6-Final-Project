@@ -14,7 +14,7 @@ h2 {
   font-size: 20px;
   color: #AB3E5B;
   text-align: center;
-} 
+}
 
 /* change the color, font and position of the third header */
 h3 {
@@ -41,7 +41,7 @@ h5 {
   font-size: 12px;
   color: #FE4365;
   text-align: center;
-} 
+}
 
 /* change the color, font and position of the plain text */
 p{
@@ -75,6 +75,7 @@ img {
 .navbar-default {
   background-color: #033649;
   font-family: "impact";
+  margin-bottom: 0;
 }
 
 /* change the color of the text in navbar*/
@@ -86,31 +87,6 @@ img {
 .well {
   height:380px;
   background-color:#D9CEB2;
-  } 
+  }
 
 /* F77825: Orange; FFEAF2: Light Pink; C7B9C5: Lavander; CDB380: Gold ; D5DED9: light green(not bad) */
-
-/* Set the background 
-body {
-  /* Location of the image */
-  background-image: url(policecar.jpg);
-  
-  /* Background image is centered vertically and horizontally at all times */
-  background-position: center center;
-  
-  /* Background image doesn't tile */
-  background-repeat: no-repeat;
-  
-  /* Background image is fixed in the viewport so that it doesn't move when 
-     the content's height is greater than the image's height */
-  background-attachment: fixed;
-  
-  /* This is what makes the background image rescale based
-     on the container's size */
-  background-size: cover;
-  
-  /* Set a background color that will be displayed
-     while the background image is loading */
-  background-color: #464646;
-} 
-*/
