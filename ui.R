@@ -29,7 +29,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                      wellPanel(
                                        tags$h2("Target Audiences"),
                                        # contents
-                                       tags$p(HTML(paste0("For a crime report based on a particular area, almost everyone living near the area is likely to be concerned with safety and will, therefore, find the report relevant. We have decided to focus on incidents in and around the ", tags$strong("UW campus. "), "Though the report will be useful to anyone in this area, we will look to serve ", tags$strong(tags$span(style = "color:red", "students ")), "in particular. Our goal is to present insights from the data and thereby provide our audience with a better sense of how to live safely.")))
+                                       tags$p(HTML(paste0("For a crime report based on a particular area, almost everyone living near the area is likely to be concerned with safety and will, therefore, find the report relevant. We have decided to focus on incidents in and around the ", tags$strong("UW campus. "), "Though the report will be useful to anyone in this area, we will look to serve ", tags$strong(tags$span(style = "color:red", "students ")), "in particular. Our goal is to present insights from the data and thereby provide our audience with a better sense of how to live safely.")))
                                      )
                               ),
 
