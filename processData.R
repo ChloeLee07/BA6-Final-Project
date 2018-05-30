@@ -3,9 +3,9 @@ library("stringr")
 
 # TODO: actually use Socrata API instead of CSV
 data <- read.csv("data/police_data.csv", stringsAsFactors = FALSE)
-#for macos
+# for MAC OS
 Sys.setlocale("LC_TIME", "de_DE")
-#for windows
+# for Windows
 Sys.setlocale("LC_TIME", "English")
 
 # This function returns the processed data frame.
@@ -122,3 +122,4 @@ process_data_with_dates <- function(starting_year) {
     ) %>%
     select(-Date_Occurred_Start)
 }
+

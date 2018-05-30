@@ -4,10 +4,20 @@ library("ggplot2")
 library("lintr")
 library("ggthemes")
 library("plotly")
+library("ggmap")
+library("ggalt")
+library("viridis")
+library("scales")
+library("grid")
+library("gridExtra")
+library("lubridate")
+library("RJSONIO")
+library("magrittr")
 
 # source in the data
 source("processData.R")
 source("script/chart_one_data.R")
+source("script/chart_four_data.R")
 source("script/chart_three.R")
 source("script/build_diagram_duy.R")
 
@@ -39,14 +49,77 @@ shinyServer(function(input, output) {
       tooltip = "info") %>%
       layout(margin = list(l = 50, r = 100, b = 170, t = 20, pad = 4))
   })
-
-  #robin
-  output$chart_three <- renderPlotly ({
-    return(chart_three(input$year, input$choice_three))
-  })
   
   #duy
   output$duy_plot <- renderPlot({
     return(build_diagram_duy(input$radiovar))
+    
   })
+
+  # daniel
+  output$hist_four <- renderPlot({
+    if (input$months_mode) {
+      if (input$off_type == 'ALL') {
+        filtered_data <- chart_four_all_month_data %>%
+          filter(input$span[1] <= Year & Year <= input$span[2])
+      } else {
+        filtered_data <- chart_four_month_data %>%
+          filter(
+            Offense_Type == input$off_type & 
+              input$span[1] <= Year &
+              Year <= input$span[2])
+      }
+      
+      lhs <- get_year_month(input$span[1], 1)
+      rhs <- get_year_month(input$span[2], 12)
+      ggplot(filtered_data) +
+        scale_x_discrete(limits = 
+                   year_month_ordering[lhs <= year_month_ordering & 
+                                              year_month_ordering <= rhs]) +
+        geom_rect(aes(
+          xmin = get_year_month(Year, Month), 
+          xmax = get_year_month(Year, Month + 1),
+          fill = factor(Year)),
+          ymin = -Inf, ymax = Inf, alpha = 0.2,
+          data = filtered_data) +
+        geom_line(aes(x = Year_Month, y = n, group = 1)) +
+        theme(axis.text.x = element_text(angle = 90, hjust = 5)) +
+        xlab("Time Frame (Year_Month)") +
+        ylab("Occurrences") +
+        labs(fill = "Year")
+    } else {
+      if (input$off_type == 'ALL') {
+        filtered_data <- chart_four_all_year_data %>%
+          filter(input$span[1] <= Year & Year <= input$span[2])
+      } else {
+        filtered_data <- chart_four_year_data %>%
+          filter(
+            Offense_Type == input$off_type & 
+              input$span[1] <= Year &
+              Year <= input$span[2])
+      }
+      
+      ggplot(filtered_data) +
+        scale_x_discrete(limits = filtered_data$Year) +
+        geom_rect(aes(
+          xmin = Year, 
+          xmax = Year + 1,
+          fill = factor(Year)),
+          ymin = -Inf, ymax = Inf, alpha = 0.2,
+          data = filtered_data) +
+        geom_line(aes(x = Year, y = n)) +
+        theme(axis.text.x = element_text(hjust = 0.5)) +
+        xlab("Year") +
+        ylab("Occurrences") +
+        labs(fill = "Year")
+    }
+    
+  })
+  
+  #robin
+  output$chart_three <- renderPlotly ({
+    return(chart_three(input$year, input$choice_three))
+  })
+
+  
 })

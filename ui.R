@@ -6,11 +6,16 @@ library("ggthemes")
 library("plotly")
 
 # source in the data
-source("script/chart_one_data.R")
 source("processData.R")
+source("script/chart_one_data.R")
+source("script/chart_four_data.R")
+
 
 # choices assign for y_var widget in chart-two (histogram)
 select_value <- unique(chart_one_data[, "Year"])
+
+# choices for offense type
+offense_type_options <- c(unique(chart_four_year_data[, "Offense_Type"]), "ALL")
 
 shinyUI(navbarPage("Seattle Crime vs. Safety",
                    # first page: Intro
@@ -108,7 +113,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                            "UW Crime Occurrances At Nighttime" = "nighttime",
                            "UW Crime Occurrances At Daytime" = "daytime"
                          ),
-                         select = 1
+                         select = "year_crime"
                        )
                      ),
                      mainPanel(plotOutput("duy_plot"))
@@ -137,6 +142,29 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                             mainPanel(plotlyOutput("chart_three"))
                             )
                    ),
+
+                   tabPanel(
+                      "Incidents Over Time",
+                      plotOutput("hist_four"),
+                      hr(),
+                      fluidRow(
+                        column(
+                          4,
+                          selectInput(
+                            "off_type", "Offense Type", selected = "ALL",
+                            offense_type_options
+                          )
+                        ),
+                        column(4,
+                          offset = 1,
+                          sliderInput("span", "Timespan", sep = '',
+                            min = 2010, max = 2018,
+                            value = c(2010, 2018)
+                          ),
+                          checkboxInput("months_mode", "Show Months")
+                        )
+                      )
+                   ),                   
                    # fifth page: basic stats computation
                    tabPanel("Summary"),
                    # Sixth page: Team info
