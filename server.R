@@ -22,7 +22,7 @@ shinyServer(function(input, output) {
       geom_text(aes(label = number), size = 1.4, vjust = -0.5) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 90, hjust = 1,
-                                       size = 5, margin = margin(2, 10, 2, 10)),
+                                       size = 4, margin = margin(2, 10, 2, 10)),
             axis.title.y = element_text(angle = 0, vjust = 0.5),
             legend.background = element_rect(fill = "white",
                                              size = 0.5, linetype = "solid",
