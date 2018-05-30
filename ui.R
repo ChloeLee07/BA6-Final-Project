@@ -16,7 +16,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                    # first page: Intro
                    tags$head(
                      tags$style(HTML(".home_page {background-image: url(policecar.jpg);
-                                     overflow: hidden;
+                                     overflow: hidden; 
                                      background-size: cover;
                                      position: absolute;
                                      left: 0;
