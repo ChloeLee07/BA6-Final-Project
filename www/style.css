@@ -87,4 +87,8 @@ p.center {
 .well {
   height:380px;
   background-color:#D9CEB2;
-  }
+}
+
+.tab-pane {
+	margin-top: 3%;
+}	

@@ -8,6 +8,7 @@ library("plotly")
 # source in the data
 source("processData.R")
 source("script/chart_one_data.R")
+source("script/chart_three.R")
 source("./script/build_diagram_duy.R")
 
 shinyServer(function(input, output) {
@@ -39,6 +40,11 @@ shinyServer(function(input, output) {
       layout(margin = list(l = 50, r = 100, b = 170, t = 20, pad = 4))
   })
 
+  #robin
+  output$chart_three <- renderPlotly ({
+    return(chart_three(2010, input$choice_three))
+  })
+  
   #duy
   output$duy_plot <- renderPlot({
     return(build_diagram_duy(input$radiovar))
