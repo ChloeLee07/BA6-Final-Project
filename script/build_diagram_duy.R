@@ -90,3 +90,4 @@ build_diagram_duy <- function(map.type) {
     theme(plot.title = element_text(hjust = 0.5))
   }
 }
+
