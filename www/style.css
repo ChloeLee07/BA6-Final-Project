@@ -1,0 +1,104 @@
+/* change the color, font and position of the first header */
+h1 {
+  font-family: "impact";
+  font-weight: 500;
+  line-height: 1.1;
+  color: #490A3D;
+  text-align: center;
+}
+
+/* change the color, font and position of the second header */
+h2 {
+  font-family: "impact";
+  text-decoration: bold;
+  font-size: 24px;
+  color: #C02942;
+  text-align: center;
+}
+
+/* change the color, font and position of the third header */
+h3 {
+  font-family: "impact";
+  text-decoration: bold;
+  font-size: 20px;
+  color: #033649;
+  text-align: center;
+}
+
+/* change the color, font and position of the forth header */
+h4 {
+  font-family: "impact";
+  text-decoration: bold;
+  font-size: 60px;
+  color: #F8CA00;
+  text-align: center;
+}
+
+/* change the color, font and position of the fifth header */
+h5 {
+  font-family: "impact";
+  text-decoration: bold;
+  font-size: 12px;
+  color: #FE4365;
+  text-align: center center;
+}
+
+/* change the color, font and position of the plain text: p-justify */
+p {
+  font-family: "Baskerville";
+  text-align: justify;
+  text-decoration: bold;
+  font-size: 15px;
+}
+
+/* change the color, font and position of the plain text: p-center */
+p.center {
+  font-family: "Baskerville";
+  text-align: center;
+  text-decoration: bold;
+  font-size: 20px;
+}
+
+<<<<<<< HEAD
+/* adjusting the size of charts */
+img {
+<<<<<<< HEAD
+  height: auto; width: 800px;
+=======
+  height: auto;
+  width: 800px;
+>>>>>>> bc6ce9f641b82ccec4fe3bed28bfa116a38e2f8e
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+=======
+/* enlarge the profile picture when hover over */
+.img1:hover {
+  transform: scale(1.3);
+>>>>>>> a9b36b6c3c3e44db551280e9b4d63fdd87b35f9f
+}
+
+/* adjusting the size of profile pics */
+.img1 {
+  width: 160px;
+  height: 180px;
+}
+
+/* change the color of the navbar */
+.navbar-default {
+  background-color: #033649;
+  font-family: "impact";
+  margin-bottom: 0;
+}
+
+/* change the color of the text in navbar */
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
+  color: #CDB380;
+  size: 15px;
+}
+
+/* change the color of the wellPannel */
+.well {
+  height:380px;
+  background-color:#D9CEB2;
+  }
