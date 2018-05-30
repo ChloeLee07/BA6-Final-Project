@@ -3,6 +3,7 @@ library("stringr")
 
 # TODO: actually use Socrata API instead of CSV
 data <- read.csv("data/police_data.csv", stringsAsFactors = FALSE)
+Sys.setlocale("LC_TIME", "English")
 
 # This function returns the processed data frame.
 # Dataset is limited to entries between 'starting_year' and current date 

@@ -125,7 +125,14 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                   "hour" = 3
                                 ),
                                 selected = 1
+                              ),
+                              selectInput(
+                                "year",
+                                label = h2("Year since:"),
+                                choices = select_value,
+                                selected = 1
                               )
+                              
                             ),
                             mainPanel(plotlyOutput("chart_three"))
                             )

@@ -42,7 +42,7 @@ shinyServer(function(input, output) {
 
   #robin
   output$chart_three <- renderPlotly ({
-    return(chart_three(2010, input$choice_three))
+    return(chart_three(input$year, input$choice_three))
   })
   
   #duy
