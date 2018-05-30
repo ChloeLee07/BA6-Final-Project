@@ -1,7 +1,6 @@
 library(plotly)
 source("processData.R")
 
-year <- 2010
 my_data <- process_data_with_dates(year) %>%
   mutate(Hour_Occurred = as.numeric(hours(Time_Occurred)),
          day_Occurred = as.numeric(days(Date_Occurred)),
