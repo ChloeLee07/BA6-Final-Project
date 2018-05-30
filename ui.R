@@ -13,10 +13,19 @@ select_value <- unique(chart_one_data[, "Year"])
 
 shinyUI(navbarPage("Seattle Crime vs. Safety",
                    # first page: Intro
+                   tags$head(
+                     tags$style(HTML(".home_page {background-image: url(policecar.jpg);
+                                     overflow: hidden;
+                                     background-size: cover;
+                                     position: absolute;
+                                     left: 0;
+                                     height:100%;}"))),
                    tabPanel("Home",
                             tags$h4("Welcome"),
+                            class = "home_page",
                             fluidRow(
                               column(4,
+                                     
                                      wellPanel(
                                        tags$h2("General Information"),
                                        # contents
@@ -71,7 +80,14 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                                we are able to identify what
                                                type of crime is the one with
                                                the higherst number of
-                                               occurences.")
+                                               occurences in the whole Seattle
+                                               area. To make the graph more
+                                               condensed, we have disregarded
+                                               the details of some types of
+                                               crimes. For example, we do not
+                                               differentiate what property or
+                                               elements are involved in the
+                                               THEFT category")
                                       )
                                 )
                             )
@@ -113,3 +129,4 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                               )
                    )
 ))
+
