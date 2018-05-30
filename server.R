@@ -11,14 +11,16 @@ source("script/chart_one_data.R")
 shinyServer(function(input, output) {
 
   output$hist <- renderPlot ({
-    # Store x and y values to produce the chart
+    # use the selected year as y value to produce the chart
     x_data <- chart_one_data %>%
       filter(Year == input$year_choice)
 
     #create the histogram
-    ggplot(x_data, aes(x = Offense_Type, y = number, fill = number)) +
+    info <- paste0("Offense Type: ", x_data[["Offense_Type"]], "<br>",
+                   "Number: ", x_data[["number"]])
+    chart <- ggplot(x_data, aes(x = Offense_Type, y = number, fill = number,
+                                text = info)) +
       geom_bar(stat = "identity") +
-      geom_text(aes(label = number), size = 1.4, vjust = -0.5) +
       theme_bw() +
       theme(axis.text.x = element_text(angle = 90, hjust = 1,
                                        size = 4, margin = margin(2, 10, 2, 10)),
@@ -31,5 +33,6 @@ shinyServer(function(input, output) {
       ylab("Numbers") +
       scale_fill_gradient(low = rgb(77 / 255, 188 / 255, 233 / 255),
                           high = rgb(204 / 255, 42 / 255, 65 / 255))
+    ggplotly(chart, tooltip = "info")
   })
 })
