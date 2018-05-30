@@ -14,7 +14,7 @@ source("processData.R")
 
 build_diagram_duy <- function(map.type) {
 
-  myData <- process_data(2018)
+  myData <- process_data("2018")
 
   myMap <- get_googlemap(
     center = c(lon = -122.3035, lat = 47.65534),

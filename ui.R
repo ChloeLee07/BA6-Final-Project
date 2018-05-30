@@ -6,8 +6,9 @@ library("ggthemes")
 library("plotly")
 
 # source in the data
-source("script/chart_one_data.R")
 source("processData.R")
+source("script/chart_one_data.R")
+
 
 # choices assign for y_var widget in chart-two (histogram)
 select_value <- unique(chart_one_data[, "Year"])
@@ -108,7 +109,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                            "UW Crime Occurrances At Nighttime" = "nighttime",
                            "UW Crime Occurrances At Daytime" = "daytime"
                          ),
-                         select = 1
+                         select = "year_crime"
                        )
                      ),
                      mainPanel(plotOutput("duy_plot"))

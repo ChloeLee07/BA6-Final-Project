@@ -34,6 +34,7 @@ process_data <- function(starting_year) {
       Date_Reported = as.Date(Date_Time_Reported),
       Time_Reported = strftime(Date_Time_Reported, format = "%H:%M:%S")
     )
+  return(processed_data)
 }
 
 
