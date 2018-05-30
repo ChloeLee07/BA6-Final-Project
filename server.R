@@ -7,6 +7,7 @@ library("ggthemes")
 # source in the data
 source("processData.R")
 source("script/chart_one_data.R")
+source("./script/build_diagram_duy.R")
 
 shinyServer(function(input, output) {
 
@@ -31,5 +32,10 @@ shinyServer(function(input, output) {
       ylab("Numbers") +
       scale_fill_gradient(low = rgb(77 / 255, 188 / 255, 233 / 255),
                           high = rgb(204 / 255, 42 / 255, 65 / 255))
+    
+    #duy
+    output$duy_plot <- renderPlot({
+      return(build_diagram_duy(input$radiovar))
+    })
   })
 })

@@ -35,7 +35,7 @@ process_data <- function(starting_year) {
     )
 }
 
-# process_data(2018)
+mydata <- process_data(2018)
 
 
 

@@ -38,7 +38,23 @@ shinyUI(navbarPage("Crime by Year",
                             )
                             ),
                    # third page
-                   tabPanel("Chart Two"), 
+                   tabPanel(
+                     "Chart Two",
+                     sidebarLayout(sidebarPanel(
+                       radioButtons(
+                         "radiovar",
+                         label = h2("Choose an option:"),
+                         choices = list(
+                           "UW Crime Distribution By Year" = "year_crime",
+                           "Most Dangerous Place At UW" = "dangerous_place",
+                           "UW Crime Occurrances At Nighttime" = "nighttime",
+                           "UW Crime Occurrances At Daytime" = "daytime"
+                         ),
+                         select = 1
+                       )
+                     ),
+                     mainPanel(plotOutput("duy_plot"))
+                   )), 
                    # fourth page
                    tabPanel("Chart Three"),
                    # fifth page: basic stats computation
