@@ -11,8 +11,8 @@ h1 {
 h2 {
   font-family: "impact";
   text-decoration: bold;
-  font-size: 20px;
-  color: #AB3E5B;
+  font-size: 24px;
+  color: #C02942;
   text-align: center;
 }
 
@@ -43,12 +43,20 @@ h5 {
   text-align: center center;
 }
 
-/* change the color, font and position of the plain text: p */
+/* change the color, font and position of the plain text: p-justify */
 p {
+  font-family: "Baskerville";
+  text-align: justify;
+  text-decoration: bold;
+  font-size: 15px;
+}
+
+/* change the color, font and position of the plain text: p-center */
+p.center {
   font-family: "Baskerville";
   text-align: center;
   text-decoration: bold;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 /* enlarge the profile picture when hover over */
