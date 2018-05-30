@@ -3,6 +3,7 @@ library("stringr")
 
 # TODO: actually use Socrata API instead of CSV
 data <- read.csv("data/police_data.csv", stringsAsFactors = FALSE)
+Sys.setlocale("LC_TIME", "English")
 
 # This function returns the processed data frame.
 # Dataset is limited to entries between 'starting_year' and current date 
@@ -34,7 +35,6 @@ process_data <- function(starting_year) {
       Date_Reported = as.Date(Date_Time_Reported),
       Time_Reported = strftime(Date_Time_Reported, format = "%H:%M:%S")
     )
-  return(processed_data)
 }
 
 
@@ -119,3 +119,4 @@ process_data_with_dates <- function(starting_year) {
     ) %>%
     select(-Date_Occurred_Start)
 }
+

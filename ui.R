@@ -115,7 +115,29 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                      mainPanel(plotOutput("duy_plot"))
                    )),
                    # fourth page
-                   tabPanel("Chart Three"),
+                   tabPanel("Crime Shown In Time Series Chart",
+                            sidebarLayout(sidebarPanel(
+                              selectInput(
+                                "choice_three",
+                                label = h2("Choose an option:"),
+                                choices = list(
+                                  "Year" = 1,
+                                  "week" = 2,
+                                  "hour" = 3
+                                ),
+                                selected = 1
+                              ),
+                              selectInput(
+                                "year",
+                                label = h2("Year since:"),
+                                choices = select_value,
+                                selected = 1
+                              )
+                              
+                            ),
+                            mainPanel(plotlyOutput("chart_three"))
+                            )
+                   ),
                    # fifth page: basic stats computation
                    tabPanel("Summary"),
                    # Sixth page: Team info
