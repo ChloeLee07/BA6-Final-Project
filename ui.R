@@ -114,7 +114,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                      mainPanel(plotOutput("duy_plot"))
                    )),
                    # fourth page
-                   tabPanel("Chart Three",
+                   tabPanel("Crime Shown In Time Series Chart",
                             sidebarLayout(sidebarPanel(
                               selectInput(
                                 "choice_three",

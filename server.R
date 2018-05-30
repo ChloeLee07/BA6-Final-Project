@@ -9,7 +9,7 @@ library("plotly")
 source("processData.R")
 source("script/chart_one_data.R")
 source("script/chart_three.R")
-source("./script/build_diagram_duy.R")
+source("script/build_diagram_duy.R")
 
 shinyServer(function(input, output) {
 

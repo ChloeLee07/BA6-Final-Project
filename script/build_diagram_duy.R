@@ -12,10 +12,14 @@ library(RJSONIO)
 library(magrittr)
 source("processData.R")
 
+myData <- process_data(2018)
+myNighttimeData <- myData %>%
+  filter(Time_Reported < "06:00:00" | Time_Reported > "18:00:00")
+myDaytimeData <- myData %>%
+  filter(Time_Reported > "06:00:00" & Time_Reported < "18:00:00")
+
+
 build_diagram_duy <- function(map.type) {
-
-  myData <- process_data(2018)
-
   myMap <- get_googlemap(
     center = c(lon = -122.3035, lat = 47.65534),
     maptype = "roadmap",
@@ -56,8 +60,6 @@ build_diagram_duy <- function(map.type) {
       theme(plot.title = element_text(hjust = 0.5))
 
   } else if (map.type == "nighttime") {
-  myNighttimeData <- myData %>%
-    filter(Time_Reported < "06:00:00" | Time_Reported > "18:00:00")
   ggmap(myMap) +
     geom_point(aes(x = myNighttimeData$Longitude, y = myNighttimeData$Latitude),
       data = myNighttimeData,
@@ -73,8 +75,6 @@ build_diagram_duy <- function(map.type) {
     theme(plot.title = element_text(hjust = 0.5))
 
   } else {
-  myDaytimeData <- myData %>%
-    filter(Time_Reported > "06:00:00" & Time_Reported < "18:00:00")
   ggmap(myMap) +
     geom_point(aes(x = myDaytimeData$Longitude, y = myDaytimeData$Latitude),
       data = myDaytimeData,
