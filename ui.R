@@ -98,7 +98,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                             ),
                    # third page
                    tabPanel(
-                     "Chart Two",
+                     "Crime near UW campus",
                      sidebarLayout(sidebarPanel(
                        radioButtons(
                          "radiovar",
