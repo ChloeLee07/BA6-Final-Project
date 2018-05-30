@@ -25,7 +25,6 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                             class = "home_page",
                             fluidRow(
                               column(4,
-                                     
                                      wellPanel(
                                        tags$h2("General Information"),
                                        # contents
