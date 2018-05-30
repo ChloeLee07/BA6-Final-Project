@@ -6,7 +6,7 @@ data <- read.csv("data/police_data.csv", stringsAsFactors = FALSE)
 # for MAC OS
 Sys.setlocale("LC_TIME", "de_DE")
 # for Windows
-Sys.setlocale("LC_TIME", "English")
+# Sys.setlocale("LC_TIME", "English")
 
 # This function returns the processed data frame.
 # Dataset is limited to entries between 'starting_year' and current date 

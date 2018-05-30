@@ -164,10 +164,8 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                           checkboxInput("months_mode", "Show Months")
                         )
                       )
-                   ),                   
-                   # fifth page: basic stats computation
-                   tabPanel("Summary"),
-                   # Sixth page: Team info
+                   ),
+                   # Fifth page: Team info
                    tabPanel("About",
                             fluidRow(
                               column(12,
