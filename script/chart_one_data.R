@@ -15,3 +15,4 @@ chart_one_data <- police_data %>%
   group_by(Year, Offense_Type) %>%
   count(Offense_Type) %>%
   rename(number = n)
+
