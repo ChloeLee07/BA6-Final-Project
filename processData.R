@@ -23,7 +23,7 @@ process_data <- function(starting_year) {
       Latitude,
       Month,
       Year
-    )  %>%
+    ) %>%
     rename(ID = RMS_CDW_ID) %>%
     # This date and time stuff is gross. TODO: try chron package
     # Using POSIXct defines ordering for the dates and times, so you
