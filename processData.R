@@ -9,7 +9,7 @@ data <- read.csv("data/police_data.csv", stringsAsFactors = FALSE)
 process_data <- function(starting_year) {
   processed_data <- data %>% filter(Year >= starting_year)
   names(processed_data) <- gsub("[.]", "_", names(processed_data))
-  
+
   processed_data <- processed_data %>%
     select(
       RMS_CDW_ID,
@@ -29,9 +29,10 @@ process_data <- function(starting_year) {
     # Using POSIXct defines ordering for the dates and times, so you
     # can use arrange and other sorting functions.
     mutate(
-      Date_Time_Reported = as.POSIXct(Date_Reported, format = '%m/%d/%Y %I:%M:%S %p'),
+      Date_Time_Reported = as.POSIXct(Date_Reported,
+                                      format = "%m/%d/%Y %I:%M:%S %p"),
       Date_Reported = as.Date(Date_Time_Reported),
-      Time_Reported = strftime(Date_Time_Reported, format = '%H:%M:%S')
+      Time_Reported = strftime(Date_Time_Reported, format = "%H:%M:%S")
     )
 }
 
@@ -66,7 +67,7 @@ process_data_with_dates <- function(starting_year) {
   library("chron")
   processed_data <- data %>% filter(Year >= starting_year)
   names(processed_data) <- gsub("[.]", "_", names(processed_data))
-  
+
   processed_data <- processed_data %>%
     select(
       RMS_CDW_ID,
@@ -84,27 +85,36 @@ process_data_with_dates <- function(starting_year) {
       Year
     )  %>%
     rename(
-      ID = RMS_CDW_ID, 
+      ID = RMS_CDW_ID,
       Date_Occurred_Start = Occurred_Date_or_Date_Range_Start,
       Date_Occurred_End = Occurred_Date_Range_End) %>%
     mutate(
-      Date_Occurred_End = ifelse(Date_Occurred_End == "", Date_Occurred_Start, Date_Occurred_End),
-      
-      Date_Time_Occurred = as.POSIXct(Date_Occurred_Start, format = '%m/%d/%Y %I:%M:%S %p'),
-      Date_Occurred = dates(strftime(Date_Time_Occurred, format = '%Y-%m-%d'), format = "y-m-d"),
-      Time_Occurred = times(strftime(Date_Time_Occurred, format = '%H:%M:%S')),
+      Date_Occurred_End = ifelse(Date_Occurred_End == "",
+                                 Date_Occurred_Start, Date_Occurred_End),
+
+      Date_Time_Occurred = as.POSIXct(Date_Occurred_Start,
+                                      format = "%m/%d/%Y %I:%M:%S %p"),
+      Date_Occurred = dates(strftime(Date_Time_Occurred,
+                                     format = "%Y-%m-%d"), format = "y-m-d"),
+      Time_Occurred = times(strftime(Date_Time_Occurred, format = "%H:%M:%S")),
       Date_Time_Occurred = chron(Date_Occurred, Time_Occurred),
-      
-      Date_Time_Occurred_End = as.POSIXct(Date_Occurred_End, format = '%m/%d/%Y %I:%M:%S %p'),
-      Date_Occurred_End = dates(strftime(Date_Time_Occurred_End, format = '%Y-%m-%d'), format = "y-m-d"),
-      Time_Occurred_End = times(strftime(Date_Time_Occurred_End, format = '%H:%M:%S')),
+
+      Date_Time_Occurred_End = as.POSIXct(Date_Occurred_End,
+                                          format = "%m/%d/%Y %I:%M:%S %p"),
+      Date_Occurred_End = dates(strftime(Date_Time_Occurred_End,
+                                         format = "%Y-%m-%d"),
+                                format = "y-m-d"),
+      Time_Occurred_End = times(strftime(Date_Time_Occurred_End,
+                                         format = "%H:%M:%S")),
       Date_Time_Occurred_End = chron(Date_Occurred_End, Time_Occurred_End),
-      
-      Date_Time_Reported = as.POSIXct(Date_Reported, format = '%m/%d/%Y %I:%M:%S %p'),
-      Date_Reported = dates(strftime(Date_Time_Reported, format = '%Y-%m-%d'), format = "y-m-d"),
-      Time_Reported = times(strftime(Date_Time_Reported, format = '%H:%M:%S')),
+
+      Date_Time_Reported = as.POSIXct(Date_Reported,
+                                      format = "%m/%d/%Y %I:%M:%S %p"),
+      Date_Reported = dates(strftime(Date_Time_Reported,
+                                     format = "%Y-%m-%d"), format = "y-m-d"),
+      Time_Reported = times(strftime(Date_Time_Reported,
+                                     format = "%H:%M:%S")),
       Date_Time_Reported = chron(Date_Reported, Time_Reported)
     ) %>%
     select(-Date_Occurred_Start)
 }
-

@@ -29,7 +29,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                      wellPanel(
                                        tags$h2("General Information"),
                                        # contents
-                                       tags$p(HTML(paste0(tags$strong("Seattle Police Department Police Report Incident "), "retrieved from ", tags$a(href="https://dev.socrata.com/foundry/data.seattle.gov/y7pv-r3kh", "City of Seattle Open Data Portal"), ", is the dataset our group chose to work with. This dataset contains details about incidents in Seattle according to the police reports filed by responding officers. The information for a particular incident is published to the dataset 6-12 hours after the corresponding police report is filed. ", "The dataset contains over ", tags$em("1,000,000 rows spanning 1990 to 2018. "), "However, the system for publishing data was adopted by the Seattle Police in 2010, and all records prior to 2010 are only added if the incident is revisited. This means that the vast majority of the data is from ", tags$em("2010-2018."))))
+                                       tags$p(HTML(paste0(tags$strong("Seattle Police Department Police Report Incident "), "retrieved from ", tags$a(href = "https://dev.socrata.com/foundry/data.seattle.gov/y7pv-r3kh", "City of Seattle Open Data Portal"), ", is the dataset our group chose to work with. This dataset contains details about incidents in Seattle according to the police reports filed by responding officers. The information for a particular incident is published to the dataset 6-12 hours after the corresponding police report is filed. ", "The dataset contains over ", tags$em("1,000,000 rows spanning 1990 to 2018. "), "However, the system for publishing data was adopted by the Seattle Police in 2010, and all records prior to 2010 are only added if the incident is revisited. This means that the vast majority of the data is from ", tags$em("2010-2018."))))
                                      )
                               ),
 
@@ -112,7 +112,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                        )
                      ),
                      mainPanel(plotOutput("duy_plot"))
-                   )), 
+                   )),
                    # fourth page
                    tabPanel("Chart Three"),
                    # fifth page: basic stats computation
@@ -122,7 +122,7 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                             fluidRow(
                               column(12,
                                      tags$h1("Team Members"),
-                                     tags$p(class = "center", HTML(paste0("We are a group of students studying at the University of Washington, and this is our", tags$strong(" final project "), "for the class: INFO201.", tags$br(), "We are especially interested in the safty issue being part of the member of the Seattle community.", tags$br() ,"Hence, we have dedicated our time analyzing the data provied by Seatlle PD.")))
+                                     tags$p(class = "center", HTML(paste0("We are a group of students studying at the University of Washington, and this is our", tags$strong(" final project "), "for the class: INFO201.", tags$br(), "We are especially interested in the safty issue being part of the member of the Seattle community.", tags$br(), "Hence, we have dedicated our time analyzing the data provied by Seatlle PD.")))
                                      ),
 
                                 column(3,

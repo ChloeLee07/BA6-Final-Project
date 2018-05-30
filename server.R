@@ -37,8 +37,8 @@ shinyServer(function(input, output) {
                           high = rgb(204 / 255, 42 / 255, 65 / 255)),
       tooltip = "info") %>%
       layout(margin = list(l = 50, r = 100, b = 170, t = 20, pad = 4))
-  }) 
-  
+  })
+
   #duy
   output$duy_plot <- renderPlot({
     return(build_diagram_duy(input$radiovar))
