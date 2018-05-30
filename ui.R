@@ -3,6 +3,7 @@ library("shiny")
 library("ggplot2")
 library("lintr")
 library("ggthemes")
+library("plotly")
 
 # source in the data
 source("script/chart_one_data.R")
@@ -67,7 +68,8 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                         tags$link(rel = "stylesheet",
                                                   type = "text/css",
                                                   href = "style.css"),
-                                        plotOutput("hist")
+                                        plotlyOutput("hist", height = 500,
+                                                     width = 900)
                                       )
                                 ),
                                 column(3,
@@ -86,7 +88,9 @@ shinyUI(navbarPage("Seattle Crime vs. Safety",
                                                crimes. For example, we do not
                                                differentiate what property or
                                                elements are involved in the
-                                               THEFT category")
+                                               THEFT category. Instead, we treat
+                                               mail theft and shoplifting as
+                                               THEFT altogehter")
                                       )
                                 )
                             )
