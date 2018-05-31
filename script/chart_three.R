@@ -2,14 +2,12 @@ library(plotly)
 source("processData.R")
 
 my_data <- process_data_with_dates(year) %>%
-  mutate(Hour_Occurred = as.numeric(hours(Time_Occurred)),
-         day_Occurred = as.numeric(days(Date_Occurred)),
+  mutate(Hour_Occurred = format(strptime(test,"%H:%M:%S"),"%H"),
          weekday = weekdays(Date_Occurred, abbreviate = FALSE))
 
 chart_three <- function(year, choice_three) {
   my_data <- process_data_with_dates(year) %>%
-    mutate(Hour_Occurred = as.numeric(hours(Time_Occurred)),
-           day_Occurred = as.numeric(days(Date_Occurred)),
+    mutate(Hour_Occurred = format(strptime(test,"%H:%M:%S"),"%H"),
            weekday = weekdays(Date_Occurred, abbreviate = FALSE))
   if (choice_three == 1) {
     by_year_data <-
