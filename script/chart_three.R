@@ -1,11 +1,11 @@
 library(plotly)
+library("chron")
 source("processData.R")
 
-my_data <- process_data_with_dates(year) %>%
-  mutate(Hour_Occurred = format(strptime(my_data$Time_Occurred,"%H:%M:%S"),"%H"),
-         weekday = weekdays(Date_Occurred, abbreviate = FALSE))
-
 chart_three <- function(year, choice_three) {
+  my_data <- process_data_with_dates(year) %>%
+    mutate(Hour_Occurred = as.numeric(chron::hours(Time_Occurred)),
+           weekday = weekdays(Date_Occurred, abbreviate = FALSE))
 
   if (choice_three == 1) {
     by_year_data <-

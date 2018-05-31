@@ -8,6 +8,7 @@ library("plotly")
 # source in the data
 source("processData.R")
 source("script/chart_one_data.R")
+source("script/chart_three.R")
 source("script/chart_four_data.R")
 # choices assign for y_var widget in chart-two (histogram)
 select_value <- unique(chart_one_data[, "Year"])
