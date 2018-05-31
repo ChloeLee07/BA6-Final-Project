@@ -4,7 +4,7 @@ library("stringr")
 # TODO: actually use Socrata API instead of CSV
 data <- read.csv("data/police_data.csv", stringsAsFactors = FALSE)
 # For MAC OS
-Sys.setlocale("LC_TIME", "de_DE")
+#Sys.setlocale("LC_TIME", "de_DE")
 # For Windows
 Sys.setlocale("LC_TIME", "English")
 
